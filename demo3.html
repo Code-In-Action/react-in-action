@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo3</title>
+    <style>
+
+        * {
+            padding:0;
+            margin:0;
+        }
+
+        html{
+            font:14px normal Arial, sans-serif;
+            color:#626771;
+            background-color:#fff;
+        }
+
+        body{
+            padding:60px;
+            text-align: center;
+        }
+
+        input[type=text]{
+            text-align: center;
+            font: inherit;
+            border: 6px solid #a3d8d6;
+            padding: 13px 12px;
+            font-size: 15px;
+            box-shadow: 0 1px 1px #DDD;
+            width: 384px;
+            outline: none;
+            display: block;
+            color: #7B8585;
+            margin: 0 auto 20px;
+        }
+
+        ul{
+            list-style: none;
+            display: inline-block;
+            width: 420px;
+            text-align: left;
+        }
+
+        ul li{
+            display: block;
+            padding: 15px 20px;
+            background-color: #F8F8F8;
+            color: #7B8585;
+            margin-bottom: 3px;
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        ul li a{
+            position: absolute;
+            left: 160px;
+            font-size: 12px;
+            line-height: 16px;
+            color: #969d9d;
+        }
+
+        ul li:hover{
+            background-color:#d8f2f1;
+        }
+    </style>
+    <script src="react.min.js"></script>
+    <script src="JSXTransformer.js"></script>
+</head>
+<body>
+    <script type="text/jsx">
+        var SearchExample = React.createClass({
+            getInitialState: function() {
+                return {searchString: ''};
+            },
+            handleChange:function(e) {
+                this.setState({searchString:e.target.value});
+
+            },
+            render: function() {
+                var libraries = this.props.items,
+                searchString = this.state.searchString.trim().toLowerCase();
+
+                if(searchString.length > 0){
+
+                    libraries = libraries.filter(function(l){
+                        return l.name.toLowerCase().match( searchString );
+                    });
+                }
+                return <div>
+                <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Type here" />
+
+                <ul>
+
+                    { libraries.map(function(l){
+                        return <li>{l.name} <a href={l.url}>{l.url}</a></li>
+                    }) }
+
+                </ul>
+
+            </div>;
+        }
+
+    });
+        var libraries = [
+
+        { name: 'Backbone.js', url: 'http://documentcloud.github.io/backbone/'},
+        { name: 'AngularJS', url: 'https://angularjs.org/'},
+        { name: 'jQuery', url: 'http://jquery.com/'},
+        { name: 'Prototype', url: 'http://www.prototypejs.org/'},
+        { name: 'React', url: 'http://facebook.github.io/react/'},
+        { name: 'Ember', url: 'http://emberjs.com/'},
+        { name: 'Knockout.js', url: 'http://knockoutjs.com/'},
+        { name: 'Dojo', url: 'http://dojotoolkit.org/'},
+        { name: 'Mootools', url: 'http://mootools.net/'},
+        { name: 'Underscore', url: 'http://documentcloud.github.io/underscore/'},
+        { name: 'Lodash', url: 'http://lodash.com/'},
+        { name: 'Moment', url: 'http://momentjs.com/'},
+        { name: 'Express', url: 'http://expressjs.com/'},
+        { name: 'Koa', url: 'http://koajs.com/'},
+
+        ];
+
+        React.render(
+            <SearchExample items={libraries} />,document.body
+            )
+    </script>
+</body>
+</html>
