@@ -2,16 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>demo1 计时器</title>
+    <title>demo2</title>
     <style>
+        * {
+            padding:0;
+            margin:0;
+        }
 
+        html{
+            font:14px normal Arial, sans-serif;
+            color:#626771;
+            background-color:#fff;
+        }
+
+        body{
+            padding:60px;
+            text-align: center;
+        }
+
+        ul{
+            list-style:none;
+            display: inline-block;
+        }
+
+        ul li{
+            display: inline-block;
+            padding: 10px 20px;
+            cursor:pointer;
+            background-color:#eee;
+            color:#7B8585;
+
+            transition:0.3s;
+        }
+
+        ul li:hover{
+            background-color:#beecea;
+        }
+
+        ul li.focused{
+            color:#fff;
+            background-color:#41c7c2;
+        }
+
+        p{
+            padding-top:15px;
+            font-size:12px;
+        }
     </style>
     <script src="react.min.js"></script>
     <script src="JSXTransformer.js"></script>
 </head>
 <body>
     <script type="text/jsx">
-      var MenuExample = React.createClass
+        var MenuExample = React.createClass({
+            getInitialState: function () {
+                return {focused: 0};
+            },
+            clicked: function (index) {
+                this.setState({focused: index});
+            },
+            render: function() {
+                var self = this;
+                return (
+                    <div>
+                    <ul>
+                        {this.props.items.map(function(m,index) {
+                            var style = '';
+                            if (self.state.focused == index) {
+                                style = 'focused';
+                            }
+                            return <li className={style} onClick={self.clicked.bind(self,index)}>{m}</li>
+                        })}
+                    </ul>
+                    <p>Selected: {this.props.items[this.state.focused]}</p>
+                    </div>
+                    );
+            }
+        })
+
+        React.render(
+            <MenuExample items={['Home','Services','About','Contact us']} />,document.body
+            )
    </script>
 </body>
 </html>
