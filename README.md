@@ -1,7 +1,7 @@
 # react-demo
 学习 react.js 的一些 demo 练习
 
-#### demo1: 计时器
+#### demo1： 计时器
 
 #### demo2： Tab 切换
 
