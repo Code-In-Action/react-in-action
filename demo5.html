@@ -71,7 +71,11 @@
             },
             render: function () {
                 var cls = 'picture ' + (this.props.favorite ? 'favorite' : '');
-                return (<div className={cls} onClick={this.clickHandler} ><img src={this.props.src} width="200" title={this.props.title} /></div>)
+                  return (
+                    <div className={cls} onClick={this.clickHandler}>
+                        <img src={this.props.src} width="200" title={this.props.title} />
+                    </div>
+                );
             }
         });
         var Picture = React.creatClass({
