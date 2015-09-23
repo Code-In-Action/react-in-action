@@ -1,5 +1,5 @@
 # react-demo
-学习 react.js 的一些 demo 练习
+学习 react.js 的一些 Demo
 
 #### demo1： 计时器
 
@@ -17,3 +17,4 @@
 
 #### demo8： 推特发布框
 
+#### demo8： 颜色选择列表
