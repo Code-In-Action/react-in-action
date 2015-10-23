@@ -1,5 +1,5 @@
-# react-demo
-学习 react.js 的一些 Demo
+# react-in-action
+
 
 #### demo1： 计时器
 
