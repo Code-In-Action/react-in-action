@@ -4,6 +4,7 @@
   "description": "Redux tree-view example",
   "scripts": {
     "start": "node server.js",
+// ss-env NODE_ENV=test mocha --recursive --compilers js:babel-register",
     "test:watch": "npm test -- --watch"
   },
   "repository": {

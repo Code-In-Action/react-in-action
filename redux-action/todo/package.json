@@ -1,26 +1,19 @@
 {
-  "name": "redux-tree-view-example",
+  "name": "redux-todos-example",
   "version": "0.0.0",
-  "description": "Redux tree-view example",
+  "description": "Redux Todos example",
   "scripts": {
     "start": "node server.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/reactjs/redux.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/reactjs/redux/issues"
-  },
-  "homepage": "http://redux.js.org",
+
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-redux": "^4.2.1",
-    "redux": "^3.2.1"
+    "react-redux": "^4.1.2",
+    "redux": "^3.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
@@ -28,11 +21,9 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.1",
-    "babel-register": "^6.4.3",
-    "deep-freeze": "0.0.1",
+    "babel-register": "^6.3.13",
     "cross-env": "^1.0.7",
-    "enzyme": "^2.0.0",
-    "expect": "^1.6.0",
+    "expect": "^1.8.0",
     "express": "^4.13.3",
     "jsdom": "^5.6.1",
     "mocha": "^2.2.5",
